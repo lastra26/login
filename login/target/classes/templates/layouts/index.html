@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts/base-layout :: head2"></head>
+<body>
+
+<div>
+<div class="container mt-7">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-body">
+                    <span th:if="${session.usuario != null}">Bienvenido/a <span class="font-italic" th:text="${session.usuario.nombre}"> </span></span>
+                <div class="col-md-6">
+                    <img class="float-left ml-1" th:src="@{'/uploads/' + ${session.usuario.foto}}" th:alt="${session.usuario.foto}" style="max-width: 90%; max-height: 100%;"
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<a th:href="@{/auth/actualizarFoto}"><button class="btn btn-default mt-5">Actualizar foto perfil</button></a>
+<td><a class="btn btn-primary btn- xs" th:href="@{/auth/listar/}" th:text="'Listado'"></a></td>
+
+<!-- <a th:href="@{/auth/editar}+${session.usuario.id}" class="btn btn-warning">Editar</a> --> <!-- boton con forma -->
+
+<footer>
+    <div class="container">
+        <th:block th:include="layouts/base-layout :: footer2"></th:block>
+    </div>
+</footer>
+</body>
+</html>

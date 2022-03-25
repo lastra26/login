@@ -1,0 +1,2 @@
+INSERT INTO `booking_restaurant`.`usuarios_login` (`id`, `apellido`, `create_at`, `email`, `foto`, `nombre`, `password`, `username`) VALUES ('1', 'perez', '2021:10:06', 'lastra26@gmail', '2.png', 'jose', 'xa', 'user');
+INSERT INTO `booking_restaurant`.`usuarios_login` (`id`, `apellido`, `create_at`, `email`, `foto`, `nombre`, `password`, `username`) VALUES ('2', 'juan', '2021:10:06', 'lastra@gmail,con', '2.png', 'jose ', 'sjja', 'user2');

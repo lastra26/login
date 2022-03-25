@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/base-layout.html :: head3"></head>
+<body>
+
+<div class="container mt-2">
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header">Registro</div>
+            <div class="card-body">
+
+
+                <form th:action="@{/auth/registro}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+
+                    <div th:object="${usuario}" th:remove="tag">
+                        <ul th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
+                            <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+
+                    <div th:if="${param.error}" class="alert alert-danger mb-3">Falta campo requerido: FILE </div>
+
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Nombre</label>
+                        <input type="text" class="form-control col-md-7"th:field="*{nombre}">
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Apellido</label>
+                        <input type="text" class="form-control col-md-7"th:field="*{apellido}">
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Email</label>
+                        <input type="email" class="form-control col-md-7"th:field="*{email}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Fecha de Registro</label>
+                        <input type="text" class="form-control col-md-7" th:field="*{createAt}">
+                        <!-- <small class="form-text text-danger" th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}"></small> -->
+
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Username*</label>
+                        <input type="text" class="form-control col-md-7"th:field="*{username}" th:errorclass="'form-control alert-danger'">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Contraseña*</label>
+                        <input type="password" class="form-control col-md-7"th:field="*{password}">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <label class="col-md-3">Foto*</label>
+                        <input type="file" name="file" class="m-2"/>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}"></small>
+                    </div>
+                    <!--
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">foto</label>
+                        <div class="col-sm-6">
+                            <td><input type="file" th:field="*{foto}" class="form-control" th:errorclass="'form-control alert-danger'"/>
+                                <small class="form-text text-danger" th:if="${#fields.hasErrors('foto')}" th:errors="*{foto}"></small>
+                        </div>
+                    </div>-->
+
+                    <div class="row form-group">
+                        <input type="submit" class="btn btn-success btn-block col-md-7 offset-3"value="Continuar" onClick="var e=this;setTimeout(function(){e.disabled=true;},1);return true;"/>
+                    </div>
+                </form>
+                <a th:href="@{/}"><button class="btn btn-default mt-5">volver</button></a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

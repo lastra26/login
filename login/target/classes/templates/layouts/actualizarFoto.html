@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header>
+    <th:block th:include="layouts/base-layout :: head2"></th:block>
+</header>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">registro</div>
+                <span  class="text-left text-black" th:if="${session.usuario != null}">Nombre Usuario: <span class="text-left text-black" th:text="${session.usuario.nombre}"> </span></span>
+                <span  class="text-left text-black" th:if="${session.usuario != null}">Nombre Usuario: <span class="text-left text-black" th:text="${session.usuario.foto}"> </span></span>
+
+                <div class="card-body">
+
+                    <form th:action="@{/private/registro3}" th:object="${usuario}" method="POST" enctype="multipart/form-data">
+                        <div class="row form-group">
+                            <input type="file"  name="file" class="m-2"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <input type="submit" class="btn btn-success btn-block col-md-7 offset-3"value="Continuar"/>
+                        </div>
+                    </form>
+                    <a th:href="@{/}"><button class="btn btn-default mt-5">volver</button></a>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<footer>
+    <div class="container">
+        <th:block th:include="layouts/base-layout :: footer"></th:block>
+    </div>
+</footer>
+</html>

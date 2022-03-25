@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/base-layout.html :: head3"></head>
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4> iniciar sesion</h4>
+                </div>
+                <img th:src="@{/imagenes/spring.png}"></img>
+
+                <div class="card-body">
+                    <div th:if="${param.error}" class="alert alert-danger mb-3">credenciales incorrectas</div>
+                    <form id="loginform" method="POST" th:action="@{/auth/login-post}" role="form">
+                        <div class="row form-group">
+                            <label class="col-md-4">Usuario</label>
+                            <input type="text" name="username"class="form-control col-md-7"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-4">Contraseña</label>
+                            <input type="password" name="password"class="form-control col-md-7"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <input type="submit" class="btn btn-success btn-block col-md-7 offset-3" value="Continuar"/>
+                        </div>
+                    </form>
+
+                    <a th:href="@{/}"><button class="btn btn-default mt-5">volver</button></a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
